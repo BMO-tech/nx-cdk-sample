@@ -1,0 +1,17 @@
+{
+  "name": "@sample-org/service-one",
+  "version": "0.0.1",
+  "description": "Service One",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BMO",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202"
+  }
+}

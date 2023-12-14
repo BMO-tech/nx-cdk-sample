@@ -1,0 +1,53 @@
+{
+  "name": "nx-cdk-sample",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "cdk synth",
+    "watch": "cdk deploy --watch",
+    "deploy": "cdk deploy --app 'cdk.out/' --require-approval never --all",
+    "cdk": "cdk"
+  },
+  "private": true,
+  "devDependencies": {
+    "@nx/eslint": "^17.2.3",
+    "@nx/jest": "^17.2.3",
+    "@nx/js": "17.2.3",
+    "@types/aws-lambda": "^8.10.130",
+    "@types/node": "^20.10.4",
+    "aws-cdk": "^2.114.1",
+    "nx": "17.2.3",
+    "typescript": "^5.3.3"
+  },
+  "workspaces": [
+    "services/*"
+  ],
+  "dependencies": {
+    "aws-cdk-lib": "^2.114.1",
+    "esbuild": "^0.19.9",
+    "source-map-support": "^0.5.21"
+  },
+  "nx": {
+    "targetDefaults": {
+      "lint": {
+        "executor": "@nx/eslint:lint",
+        "outputs": [
+          "{options.outputFile}"
+        ],
+        "options": {
+          "lintFilePatterns": [
+            "services/**/*.ts"
+          ],
+          "fix": true
+        }
+      },
+      "test": {
+        "executor": "@nx/jest:jest",
+        "options": {
+          "jestConfig": "{workspaceRoot}/jest.config.js",
+          "passWithNoTests": true
+        }
+      }
+    }
+  }
+}
